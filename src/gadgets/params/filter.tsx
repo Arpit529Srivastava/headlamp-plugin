@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
+import { DataSource } from 'src/types';
 // Assuming you've converted the Title component to React
 
 const operations = [
@@ -33,7 +34,7 @@ const FilterComponent = ({ param, config, gadgetConfig }) => {
     console.log('Gadget info:', gadgetInfo);
     if (!gadgetInfo) return [];
     const tmpFields = [];
-    Object.values(gadgetInfo).forEach(ds => {
+    Object.values(gadgetInfo).forEach((ds: DataSource) => {
       ds.fields.forEach(f => {
         tmpFields.push({ ds: ds.name, ...f });
       });
